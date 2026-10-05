@@ -18,32 +18,31 @@ export default function AuthorSidebar({
   onSelectTag,
 }: AuthorSidebarProps) {
   return (
-    <aside className="w-full space-y-8" aria-label="Sidebar">
+    <aside className="w-full space-y-7" aria-label="Sidebar">
       {/* About Author Card */}
-      <div className="bg-[#F8FAFC] border border-slate-100/90 rounded-2xl p-6">
-        <h3 className="text-[13px] font-semibold text-slate-400 uppercase tracking-wider mb-4">
+      <div className="bg-[#F8FAFC] border border-slate-100/90 rounded-[18px] p-5 sm:p-6">
+        <h3 className="text-[13px] font-semibold text-[#0F172A] mb-3.5">
           About author
         </h3>
 
-        <div className="flex items-center gap-3 mb-3">
-          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
+        <div className="flex items-center gap-3 mb-2.5">
+          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
             <Image
               src={DEFAULT_AUTHOR.avatar}
               alt={DEFAULT_AUTHOR.name}
               fill
-              sizes="40px"
+              sizes="36px"
               className="object-cover"
             />
           </div>
           <div>
-            <h4 className="text-[15px] font-bold text-[#0F172A]">
+            <h4 className="text-[14px] font-semibold text-[#0F172A]">
               {DEFAULT_AUTHOR.name}
             </h4>
-            <p className="text-[12px] text-slate-400">{DEFAULT_AUTHOR.location}</p>
           </div>
         </div>
 
-        <p className="text-[13px] text-slate-500 leading-relaxed mb-5">
+        <p className="text-[12.5px] text-slate-500 leading-relaxed mb-4">
           {DEFAULT_AUTHOR.bio}
         </p>
 
@@ -51,10 +50,10 @@ export default function AuthorSidebar({
           href={DEFAULT_AUTHOR.figmaUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-2.5 px-4 bg-white border border-slate-200 rounded-xl text-[13px] font-medium text-slate-700 flex items-center justify-center gap-2 shadow-sm hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-300"
+          className="w-full py-2.5 px-3.5 bg-white border border-slate-200/90 rounded-xl text-[12.5px] font-medium text-slate-700 flex items-center justify-center gap-2 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-300"
         >
           <svg
-            className="w-4 h-4"
+            className="w-3.5 h-3.5"
             viewBox="0 0 38 57"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +85,7 @@ export default function AuthorSidebar({
 
       {/* Popular Tags */}
       <div>
-        <h3 className="text-[17px] font-bold text-[#0F172A] mb-3.5">
+        <h3 className="text-[15px] font-bold text-[#0F172A] mb-3">
           Popular Tags
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -97,10 +96,10 @@ export default function AuthorSidebar({
                 key={tag}
                 type="button"
                 onClick={() => onSelectTag?.(isSelected ? "" : tag)}
-                className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all ${
+                className={`px-3 py-1 rounded-full text-[12px] font-medium transition-all ${
                   isSelected
                     ? "bg-[#0F172A] text-white shadow-sm"
-                    : "bg-[#E0F2FE]/60 text-[#0369A1] hover:bg-[#E0F2FE]"
+                    : "bg-[#E0F2FE]/70 text-[#0284C7] hover:bg-[#E0F2FE]"
                 }`}
               >
                 {tag}
@@ -112,19 +111,19 @@ export default function AuthorSidebar({
 
       {/* Featured Posts */}
       <div>
-        <h3 className="text-[17px] font-bold text-[#0F172A] mb-3.5">
+        <h3 className="text-[15px] font-bold text-[#0F172A] mb-3">
           Featured Posts
         </h3>
-        <div className="space-y-4">
+        <div className="space-y-1">
           {featuredPosts.slice(0, 4).map((post) => (
             <div
               key={post.id}
-              className="border-b border-slate-100 pb-3.5 last:border-none last:pb-0"
+              className="border-b border-slate-100 py-3 first:pt-0 last:border-none last:pb-0"
             >
               <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#E0F2FE] text-[#0284C7] mb-1.5">
-                {post.category || post.tags[0] || "Design"}
+                Design
               </span>
-              <h4 className="text-[14px] font-semibold text-[#0F172A] hover:text-blue-600 leading-snug transition-colors">
+              <h4 className="text-[13.5px] font-medium text-[#0F172A] hover:text-blue-600 leading-snug transition-colors">
                 <Link href={`/posts/${post.id}`}>
                   {post.title}
                 </Link>

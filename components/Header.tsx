@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white border-b border-slate-100/80 sticky top-0 z-50 backdrop-blur-md bg-white/95">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
           <div className="w-[34px] h-[34px] rounded-full bg-[#0F172A] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">

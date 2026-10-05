@@ -34,7 +34,7 @@ export default function BlogCard({ post }: BlogCardProps) {
       {/* Featured Image */}
       <Link
         href={`/posts/${post.id}`}
-        className="block relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 mb-4"
+        className="block relative aspect-[4/3] w-full rounded-[16px] overflow-hidden bg-slate-100 mb-3.5"
         tabIndex={-1}
         aria-hidden="true"
       >
@@ -49,11 +49,11 @@ export default function BlogCard({ post }: BlogCardProps) {
       </Link>
 
       {/* Tags */}
-      <div className="flex flex-wrap items-center gap-2 mb-3">
+      <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
         {post.tags.map((tag) => (
           <span
             key={tag}
-            className={`px-3 py-1 rounded-full text-[12px] font-medium tracking-tight ${getTagStyle(
+            className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium tracking-tight ${getTagStyle(
               tag
             )}`}
           >
@@ -63,33 +63,33 @@ export default function BlogCard({ post }: BlogCardProps) {
       </div>
 
       {/* Post Title */}
-      <h2 className="text-[19px] sm:text-[20px] font-bold text-[#0F172A] leading-[1.3] mb-2 tracking-[-0.01em] group-hover:text-blue-600 transition-colors">
+      <h2 className="text-[18px] sm:text-[19px] font-bold text-[#0F172A] leading-[1.3] mb-2 tracking-[-0.01em] group-hover:text-blue-600 transition-colors">
         <Link href={`/posts/${post.id}`} className="focus:outline-none focus:underline">
           {post.title}
         </Link>
       </h2>
 
       {/* Excerpt */}
-      <p className="text-[14px] text-slate-500 leading-relaxed line-clamp-2 mb-4 flex-grow">
+      <p className="text-[13px] text-slate-500 leading-relaxed line-clamp-2 mb-3.5 flex-grow">
         {post.excerpt}
       </p>
 
       {/* Metadata / Author */}
-      <div className="flex items-center gap-2.5 pt-1 mt-auto">
-        <div className="relative w-[26px] h-[26px] rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
+      <div className="flex items-center gap-2 pt-1 mt-auto">
+        <div className="relative w-[24px] h-[24px] rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
           <Image
             src={post.author.avatar}
             alt={post.author.name}
             fill
-            sizes="26px"
+            sizes="24px"
             className="object-cover"
           />
         </div>
-        <span className="text-[13px] font-medium text-slate-700">
+        <span className="text-[12px] font-medium text-slate-700">
           {post.author.name}
         </span>
-        <span className="text-slate-300 text-[12px]">•</span>
-        <span className="text-[13px] text-slate-400">{post.readTime}</span>
+        <span className="text-slate-300 text-[11px]">•</span>
+        <span className="text-[12px] text-slate-400">{post.readTime}</span>
       </div>
     </article>
   );

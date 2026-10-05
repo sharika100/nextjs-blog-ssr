@@ -34,7 +34,7 @@ export const INITIAL_POSTS: BlogPost[] = [
     title: "Mastering UI Elements: A Practical Guide for Designers",
     slug: "mastering-ui-elements-practical-guide",
     excerpt:
-      "Dive into the world of user interfaces with our expert guides, latest trends, and practical tips to create seamless, functional experiences.",
+      "Dive into the world of user interfaces with our expert guides, latest trends, and practical tips.",
     content: `
 User interface design is not merely about decorating screens with pleasing colors and trendy gradients. At its core, UI design is a disciplined communication craft: translating user intention into actionable, frictionless software behavior.
 
@@ -60,10 +60,10 @@ Mastering UI elements requires treating components as living building blocks rat
   },
   {
     id: "2",
-    title: "Mastering the Art of User Interface Design: Best Practices",
+    title: "Mastering UI Elements: A Practical Guide for Designers",
     slug: "mastering-the-art-of-user-interface-design",
     excerpt:
-      "Explore comprehensive guidelines for crafting high-conversion digital experiences, from typography hierarchies to balanced whitespace.",
+      "Dive into the world of user interfaces with our expert guides, latest trends, and practical tips.",
     content: `
 Great interfaces feel invisible because they anticipate what the user requires before cognitive fatigue sets in. In this comprehensive guide, we dissect the anatomy of award-winning enterprise dashboards and SaaS landing pages.
 
@@ -78,15 +78,15 @@ Using a modular scale (such as a 1.25 Major Third or 1.333 Perfect Fourth ratio)
     tags: ["Design", "Management", "Web Development"],
     category: "Design",
     date: "May 10, 2026",
-    readTime: "6 min read",
+    readTime: "5 min read",
     featured: true,
   },
   {
     id: "3",
-    title: "Navigating the User-Centric Landscape in Modern UX",
+    title: "Mastering UI Elements: A Practical Guide for Designers",
     slug: "navigating-user-centric-landscape-ux",
     excerpt:
-      "Discover proven methodologies to conduct empathetic user research, test interaction models, and validate critical assumptions early.",
+      "Dive into the world of user interfaces with our expert guides, latest trends, and practical tips.",
     content: `
 Understanding the human on the other side of the glass requires moving beyond abstract user personas into direct qualitative observation.
 
@@ -98,18 +98,18 @@ Don't wait for high-fidelity mockups to test information architecture. Wireframe
     `,
     image: "/images/post-3.jpg",
     author: DEFAULT_AUTHOR,
-    tags: ["Design", "UX Research", "Management"],
+    tags: ["Design", "Management", "Web Development"],
     category: "UX Research",
     date: "May 8, 2026",
-    readTime: "4 min read",
+    readTime: "5 min read",
     featured: true,
   },
   {
     id: "4",
-    title: "Advanced Techniques for Innovative UI/UX Designers",
+    title: "Mastering UI Elements: A Practical Guide for Designers",
     slug: "advanced-techniques-innovative-ui-ux",
     excerpt:
-      "Elevate your design workflow with advanced variable modes, automated responsive grids, and design-to-code synchronization.",
+      "Dive into the world of user interfaces with our expert guides, latest trends, and practical tips.",
     content: `
 Modern design systems are dynamic software products in their own right. Leveraging Figma variables, token aliases, and code generator pipelines allows designers to speak the exact same language as engineers.
 
@@ -121,7 +121,7 @@ By structuring tokens into primitive, semantic, and component levels, a single s
     tags: ["Design", "Management", "Web Development"],
     category: "Design",
     date: "May 5, 2026",
-    readTime: "7 min read",
+    readTime: "5 min read",
     featured: true,
   },
   {
@@ -138,7 +138,7 @@ Ensuring a minimum 4.5:1 contrast ratio for normal text and 3:1 for large displa
     `,
     image: "/images/post-5.jpg",
     author: DEFAULT_AUTHOR,
-    tags: ["Design", "Development", "QA Engineering"],
+    tags: ["Design", "Management", "Web Development"],
     category: "Web Development",
     date: "May 2, 2026",
     readTime: "5 min read",
@@ -158,10 +158,10 @@ Aligning your spacing scale (e.g., 4px base increments), typography classes, and
     `,
     image: "/images/post-6.jpg",
     author: DEFAULT_AUTHOR,
-    tags: ["Front-end development", "QA Engineering", "Development"],
+    tags: ["Design", "Management", "Web Development"],
     category: "Web Development",
     date: "April 28, 2026",
-    readTime: "8 min read",
+    readTime: "5 min read",
     featured: false,
   },
 ];
