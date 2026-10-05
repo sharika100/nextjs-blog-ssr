@@ -21,7 +21,8 @@ export async function getPosts(params: FetchPostsParams = {}): Promise<BlogPost[
     if (tag) searchParams.set("tag", tag);
     if (category) searchParams.set("category", category);
 
-    const res = await fetch(`/api/posts?${searchParams.toString()}`, {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+    const res = await fetch(`${baseUrl}/api/posts?${searchParams.toString()}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -68,7 +69,8 @@ export async function getPosts(params: FetchPostsParams = {}): Promise<BlogPost[
  */
 export async function getPostById(id: string): Promise<BlogPost | null> {
   if (typeof window !== "undefined") {
-    const res = await fetch(`/api/posts/${encodeURIComponent(id)}`);
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+    const res = await fetch(`${baseUrl}/api/posts/${encodeURIComponent(id)}`);
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`Failed to fetch post: ${res.statusText}`);
     return await res.json();
