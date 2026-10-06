@@ -6,6 +6,10 @@ import BlogGrid from "@/components/BlogGrid";
 import Footer from "@/components/Footer";
 import { getPosts } from "@/lib/api";
 
+// Ensure genuine dynamic Server-Side Rendering (SSR) per request
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Beyond UI Blog — Design Systems & UI Resources",
   description:

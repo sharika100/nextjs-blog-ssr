@@ -5,13 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BlogCard, { getTagStyle } from "@/components/BlogCard";
+import BlogCard from "@/components/BlogCard";
+import { getTagStyle } from "@/lib/utils";
 import { getPostById, getPosts } from "@/lib/api";
-import { ArrowLeft, Clock, Calendar, Share2, Bookmark } from "lucide-react";
+import PostActions from "@/components/PostActions";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 
 interface PostPageProps {
   params: Promise<{ id: string }>;
 }
+
+export const dynamic = "force-dynamic";
 
 // Dynamic SEO Metadata generation
 export async function generateMetadata({
@@ -84,24 +88,11 @@ export default async function PostPage({ params }: PostPageProps) {
               <span>Back to all articles</span>
             </Link>
 
-            <div className="flex items-center gap-2 text-slate-400">
-              <button
-                type="button"
-                className="p-2 rounded-full hover:bg-slate-100 hover:text-slate-700 transition-colors"
-                title="Save article"
-                aria-label="Save article"
-              >
-                <Bookmark className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                className="p-2 rounded-full hover:bg-slate-100 hover:text-slate-700 transition-colors"
-                title="Share article"
-                aria-label="Share article"
-              >
-                <Share2 className="w-4 h-4" />
-              </button>
-            </div>
+            <PostActions
+              postId={post.id}
+              postTitle={post.title}
+              postExcerpt={post.excerpt}
+            />
           </div>
 
           {/* Tags */}

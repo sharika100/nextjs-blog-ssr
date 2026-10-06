@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { INITIAL_POSTS } from "@/lib/data";
+import { fetchRawPostsFromMockApi } from "@/lib/api";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(
   request: NextRequest,
@@ -7,7 +9,8 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const post = INITIAL_POSTS.find(
+    const posts = await fetchRawPostsFromMockApi();
+    const post = posts.find(
       (p) => p.id === id || p.slug === id
     );
 

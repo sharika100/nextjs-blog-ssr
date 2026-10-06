@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,38 +7,20 @@ import { BlogPost } from "@/lib/types";
 
 interface BlogCardProps {
   post: BlogPost;
+  onSelectTag?: (tag: string) => void;
 }
 
-// Function to map tag names to specific color styles matching the Dribbble design
-export function getTagStyle(tag: string): string {
-  const lower = tag.toLowerCase();
-  if (lower.includes("design")) {
-    return "bg-[#E0F2FE] text-[#0284C7]"; // Light blue
-  }
-  if (lower.includes("management")) {
-    return "bg-[#F3E8FF] text-[#7E22CE]"; // Light purple
-  }
-  if (lower.includes("web") || lower.includes("dev") || lower.includes("front")) {
-    return "bg-[#DCFCE7] text-[#15803D]"; // Light green
-  }
-  if (lower.includes("research") || lower.includes("ux")) {
-    return "bg-[#FEF3C7] text-[#B45309]"; // Light amber
-  }
-  if (lower.includes("qa") || lower.includes("engineering")) {
-    return "bg-[#FEE2E2] text-[#B91C1C]"; // Light rose
-  }
-  return "bg-slate-100 text-slate-700";
-}
+import { getTagStyle } from "@/lib/utils";
+export { getTagStyle };
 
-export default function BlogCard({ post }: BlogCardProps) {
+export default function BlogCard({ post, onSelectTag }: BlogCardProps) {
   return (
     <article className="group flex flex-col h-full bg-white transition-all">
-      {/* Featured Image */}
+      {/* Featured Image Link */}
       <Link
         href={`/posts/${post.id}`}
-        className="block relative aspect-[4/3] w-full rounded-[16px] overflow-hidden bg-slate-100 mb-3.5"
-        tabIndex={-1}
-        aria-hidden="true"
+        className="block relative aspect-[4/3] w-full rounded-[16px] overflow-hidden bg-slate-100 mb-3.5 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+        aria-label={`Read article: ${post.title}`}
       >
         <Image
           src={post.image}
@@ -48,23 +32,44 @@ export default function BlogCard({ post }: BlogCardProps) {
         />
       </Link>
 
-      {/* Tags */}
+      {/* Tags (Interactive Filter or Link) */}
       <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-        {post.tags.map((tag) => (
-          <span
-            key={tag}
-            className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium tracking-tight ${getTagStyle(
-              tag
-            )}`}
-          >
-            {tag}
-          </span>
-        ))}
+        {post.tags.map((tag) =>
+          onSelectTag ? (
+            <button
+              key={tag}
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelectTag(tag);
+              }}
+              title={`Filter by tag: ${tag}`}
+              className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium tracking-tight transition-colors focus:outline-none focus:ring-1 focus:ring-slate-400 ${getTagStyle(
+                tag
+              )}`}
+            >
+              {tag}
+            </button>
+          ) : (
+            <Link
+              key={tag}
+              href={`/?tag=${encodeURIComponent(tag)}`}
+              className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium tracking-tight transition-colors focus:outline-none focus:ring-1 focus:ring-slate-400 ${getTagStyle(
+                tag
+              )}`}
+            >
+              {tag}
+            </Link>
+          )
+        )}
       </div>
 
       {/* Post Title */}
       <h2 className="text-[18px] sm:text-[19px] font-bold text-[#0F172A] leading-[1.3] mb-2 tracking-[-0.01em] group-hover:text-blue-600 transition-colors">
-        <Link href={`/posts/${post.id}`} className="focus:outline-none focus:underline">
+        <Link
+          href={`/posts/${post.id}`}
+          className="focus:outline-none focus:underline"
+        >
           {post.title}
         </Link>
       </h2>
@@ -76,18 +81,23 @@ export default function BlogCard({ post }: BlogCardProps) {
 
       {/* Metadata / Author */}
       <div className="flex items-center gap-2 pt-1 mt-auto">
-        <div className="relative w-[24px] h-[24px] rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
-          <Image
-            src={post.author.avatar}
-            alt={post.author.name}
-            fill
-            sizes="24px"
-            className="object-cover"
-          />
-        </div>
-        <span className="text-[12px] font-medium text-slate-700">
-          {post.author.name}
-        </span>
+        <Link
+          href={`/posts/${post.id}`}
+          className="flex items-center gap-2 group/author focus:outline-none"
+        >
+          <div className="relative w-[24px] h-[24px] rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
+            <Image
+              src={post.author.avatar}
+              alt={post.author.name}
+              fill
+              sizes="24px"
+              className="object-cover"
+            />
+          </div>
+          <span className="text-[12px] font-medium text-slate-700 group-hover/author:text-slate-900">
+            {post.author.name}
+          </span>
+        </Link>
         <span className="text-slate-300 text-[11px]">•</span>
         <span className="text-[12px] text-slate-400">{post.readTime}</span>
       </div>

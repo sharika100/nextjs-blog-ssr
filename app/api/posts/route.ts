@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { INITIAL_POSTS } from "@/lib/data";
+import { fetchRawPostsFromMockApi } from "@/lib/api";
 import { BlogPost } from "@/lib/types";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
@@ -9,7 +11,8 @@ export async function GET(request: NextRequest) {
     const tag = searchParams.get("tag")?.trim() || "";
     const category = searchParams.get("category")?.trim() || "";
 
-    let filtered: BlogPost[] = [...INITIAL_POSTS];
+    const rawPosts = await fetchRawPostsFromMockApi();
+    let filtered: BlogPost[] = [...rawPosts];
 
     if (category && category !== "All Posts") {
       filtered = filtered.filter(

@@ -39,24 +39,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-[14px] text-slate-400">
               <li>
-                <a href="#components" className="hover:text-white transition-colors">
+                <a
+                  href="https://www.figma.com/@beyondui"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Components
                 </a>
               </li>
               <li>
-                <a href="#templates" className="hover:text-white transition-colors">
+                <a
+                  href="https://www.figma.com/@beyondui"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Templates
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
-                  Pricing
-                </a>
+                <Link href="/features" className="hover:text-white transition-colors">
+                  Features & Tokens
+                </Link>
               </li>
               <li>
-                <a href="#changelog" className="hover:text-white transition-colors">
+                <Link href="/changelog" className="hover:text-white transition-colors">
                   Changelog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -73,48 +83,56 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#docs" className="hover:text-white transition-colors">
+                <Link href="/features" className="hover:text-white transition-colors">
                   Documentation
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#figma" className="hover:text-white transition-colors">
+                <a
+                  href="https://www.figma.com/@beyondui"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Figma Community
                 </a>
               </li>
               <li>
-                <a href="#support" className="hover:text-white transition-colors">
+                <a
+                  href="mailto:support@beyondui.design"
+                  className="hover:text-white transition-colors"
+                >
                   Support
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Links Column 3: Legal */}
+          {/* Links Column 3: Legal & Company */}
           <div className="space-y-3">
             <h4 className="text-[13px] font-semibold text-white uppercase tracking-wider">
               Company
             </h4>
             <ul className="space-y-2 text-[14px] text-slate-400">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-white transition-colors">
                   About us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#privacy" className="hover:text-white transition-colors">
+                <Link href="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#terms" className="hover:text-white transition-colors">
+                <Link href="/terms" className="hover:text-white transition-colors">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#license" className="hover:text-white transition-colors">
+                <Link href="/license" className="hover:text-white transition-colors">
                   License
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -134,7 +152,7 @@ export default function Footer() {
               Twitter / X
             </a>
             <a
-              href="https://dribbble.com"
+              href="https://dribbble.com/shots/23491039-Blog-page-UI-design-Beyond-UI"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-slate-300 transition-colors"
@@ -143,7 +161,7 @@ export default function Footer() {
               Dribbble
             </a>
             <a
-              href="https://figma.com"
+              href="https://www.figma.com/@beyondui"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-slate-300 transition-colors"
@@ -152,7 +170,7 @@ export default function Footer() {
               Figma
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/sharika100/nextjs-blog-ssr"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-slate-300 transition-colors"
